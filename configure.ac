@@ -44,47 +44,6 @@ AM_CONFIG_HEADER(config.h)
 AC_PROG_CC
 AC_PROG_LIBTOOL
 
-# Check for X
-PKG_CHECK_MODULES(X, xproto, 
-		  [x_found_with_pkgconfig=yes],
-		  [x_found_with_pkgconfig=no])
-AC_SUBST(X_CFLAGS)
-AC_SUBST(X_LIBS)
-		  
-if test "$x_found_with_pkgconfig" = "no"
-then
-	AC_PATH_XTRA
-	X_LIBS="$X_LIBS -lX11"
-
-	if test "x$no_x" = "xyes"
-	then
-	        AC_MSG_ERROR([X is required, but it was either disabled or not found.])
-	fi
-
-	save_LIBS="$LIBS"
-	save_CFLAGS="$CFLAGS"
-	CFLAGS="$CFLAGS $X_CFLAGS"
-	LIBS="$LIBS $X_LIBS"
-
-	AC_MSG_CHECKING([for XTHREADS in Xlib])
-	AC_RUN_IFELSE(
-	   [AC_LANG_PROGRAM([[#include <X11/Xlib.h>]],
-			    [[return XInitThreads() == 0 ? 0 : 1;]])],
-	   [xthreads=no],
-	   [xthreads=yes],
-	   [xthreads=yes])
-	   
-	AC_MSG_RESULT($xthreads)
-	
-	LIBS="$save_LIBS"
-	CFLAGS="$save_CFLAGS"
-	
-	if test "x$xthreads" = "xyes"
-	then
-	        X_CFLAGS="$X_CFLAGS -DXTHREADS"
-	fi
-fi
-
 # Check compositeext configuration, strip extra digits from package version to
 # find the required protocol version
 
@@ -92,9 +51,9 @@ if test "$VERSION" = "" ; then
        VERSION=$PACKAGE_VERSION;
 fi
 COMPOSITEEXT_VERSION=[`echo $VERSION | sed 's/^\([0-9][0-9]*\.[0-9][0-9]*\).*$/\1/'`]
-PKG_CHECK_MODULES(XCOMPOSITE, [compositeproto >= $COMPOSITEEXT_VERSION] xfixes)
-AC_SUBST(XCOMPOSITE_CFLAGS)
-AC_SUBST(XCOMPOSITE_LIBS)
+PKG_CHECK_MODULES(DEP, [compositeproto >= $COMPOSITEEXT_VERSION] x11)
+AC_SUBST(DEP_CFLAGS)
+AC_SUBST(DEP_LIBS)
 
 AC_OUTPUT([Makefile
 	   src/Makefile
