@@ -1,5 +1,11 @@
 2005-07-11  Keith Packard  <keithp@keithp.com>
 
+	* src/.cvsignore:
+	* src/Makefile.am:
+	Add missing files
+
+2005-07-11  Keith Packard  <keithp@keithp.com>
+
 	* configure.ac:
 	* xcomposite.pc.in:
 	Require modular X library.
