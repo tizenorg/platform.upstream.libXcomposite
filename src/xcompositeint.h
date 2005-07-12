@@ -32,7 +32,7 @@
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
 #include <X11/extensions/compositeproto.h>
-#include "Xcomposite.h"
+#include <X11/extensions/Xcomposite.h>
 
 typedef struct _XCompositeExtDisplayInfo {
     struct _XCompositeExtDisplayInfo  *next;    /* keep a linked list */
