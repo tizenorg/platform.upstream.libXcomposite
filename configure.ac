@@ -51,7 +51,7 @@ if test "$VERSION" = "" ; then
        VERSION=$PACKAGE_VERSION;
 fi
 COMPOSITEEXT_VERSION=[`echo $VERSION | sed 's/^\([0-9][0-9]*\.[0-9][0-9]*\).*$/\1/'`]
-PKG_CHECK_MODULES(DEP, [compositeproto >= $COMPOSITEEXT_VERSION] x11)
+PKG_CHECK_MODULES(DEP, [compositeproto >= $COMPOSITEEXT_VERSION] x11 xfixes xext)
 AC_SUBST(DEP_CFLAGS)
 AC_SUBST(DEP_LIBS)
 
