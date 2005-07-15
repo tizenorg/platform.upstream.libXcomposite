@@ -29,7 +29,7 @@ libXcomposite_la_SOURCES = \
 	xcompositeint.h	\
 	Xcomposite.c
 
-libXcomposite_la_LIBADD = $(XCOMPOSITE_LIBS) $(X_LIBS)
+libXcomposite_la_LIBADD = $(XCOMPOSITE_LIBS) $(X_LIBS) $(DEP_LIBS)
 
 #
 # Library version info.  Check the libtool docs for

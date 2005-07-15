@@ -1,3 +1,8 @@
+2005-07-15  Alexander Gottwald  <ago at freedesktop dot org>
+
+	* src/Makefile.am:
+	Add DEP_LIBS
+
 2005-07-11  Keith Packard  <keithp@keithp.com>
 
 	* src/.cvsignore:
