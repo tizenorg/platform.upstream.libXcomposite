@@ -31,17 +31,7 @@ libXcomposite_la_SOURCES = \
 
 libXcomposite_la_LIBADD = $(XCOMPOSITE_LIBS) $(X_LIBS) $(DEP_LIBS)
 
-#
-# Library version info.  Check the libtool docs for
-# instructions on when and how to change this value
-#
-# bump when the ABI changes
-XCOMPOSITE_CURRENT=2
-# bump for non-ABI changes, reset to zero when CURRENT changes
-XCOMPOSITE_REVISION=0
-# bump when the ABI changes in backward-compatible fashion
-XCOMPOSITE_AGE=1
-libXcomposite_la_LDFLAGS = -version-info ${XCOMPOSITE_CURRENT}:${XCOMPOSITE_REVISION}:${XCOMPOSITE_AGE} -no-undefined
+libXcomposite_la_LDFLAGS = -version-number 1:0:0 -no-undefined
 
 libXcompositeincludedir = $(includedir)/X11/extensions
 libXcompositeinclude_HEADERS = $(top_srcdir)/include/X11/extensions/Xcomposite.h 
