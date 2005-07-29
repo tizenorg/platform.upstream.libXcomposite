@@ -34,7 +34,7 @@ dnl protocol, so Xcomposite version l.n.m corresponds to protocol version l.n
 dnl that 'revision' number appears in Xcomposite.h and has to be manually
 dnl synchronized.
 dnl
-AC_INIT(libXcomposite, 0.2.0, [keithp@keithp.com], libXcomposite)
+AC_INIT(libXcomposite, 0.2.0, [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg], libXcomposite)
 AM_INIT_AUTOMAKE([dist-bzip2])
 AM_MAINTAINER_MODE
 
@@ -54,6 +54,8 @@ COMPOSITEEXT_VERSION=[`echo $VERSION | sed 's/^\([0-9][0-9]*\.[0-9][0-9]*\).*$/\
 PKG_CHECK_MODULES(DEP, [compositeproto >= $COMPOSITEEXT_VERSION] x11 xfixes xext)
 AC_SUBST(DEP_CFLAGS)
 AC_SUBST(DEP_LIBS)
+
+XORG_RELEASE_VERSION
 
 AC_OUTPUT([Makefile
 	   src/Makefile
