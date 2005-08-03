@@ -21,7 +21,7 @@
 #  TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 #  PERFORMANCE OF THIS SOFTWARE.
 
-AM_CFLAGS = $(DEP_CFLAGS) $(XCOMPOSITE_CFLAGS) $(X_CFLAGS) -I$(top_srcdir)/include
+AM_CFLAGS = $(XCOMPOSITE_CFLAGS) $(XCOMPOSITE_CFLAGS) $(X_CFLAGS) -I$(top_srcdir)/include
 
 lib_LTLIBRARIES = libXcomposite.la
 
@@ -29,7 +29,7 @@ libXcomposite_la_SOURCES = \
 	xcompositeint.h	\
 	Xcomposite.c
 
-libXcomposite_la_LIBADD = $(XCOMPOSITE_LIBS) $(X_LIBS) $(DEP_LIBS)
+libXcomposite_la_LIBADD = $(XCOMPOSITE_LIBS) $(X_LIBS) $(XCOMPOSITE_LIBS)
 
 libXcomposite_la_LDFLAGS = -version-number 1:0:0 -no-undefined
 
