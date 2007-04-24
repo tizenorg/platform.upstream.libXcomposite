@@ -1,0 +1,6 @@
+shadows.DONE
+*.3
+*~
+Xcomposite.man
+Makefile
+Makefile.in

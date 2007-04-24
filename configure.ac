@@ -44,6 +44,10 @@ AM_CONFIG_HEADER(config.h)
 AC_PROG_CC
 AC_PROG_LIBTOOL
 
+AC_ARG_VAR([XMLTO], [Path to xmlto command])
+AC_PATH_PROG([XMLTO], [xmlto])
+AM_CONDITIONAL([HAVE_XMLTO], [test "x$XMLTO" != "x"])
+
 # Check compositeext configuration, strip extra digits from package version to
 # find the required protocol version
 
@@ -56,9 +60,11 @@ PKG_CHECK_MODULES(XCOMPOSITE, [compositeproto >= $COMPOSITEEXT_VERSION] x11 xfix
 AC_SUBST(XCOMPOSITE_CFLAGS)
 AC_SUBST(XCOMPOSITE_LIBS)
 
+XORG_MANPAGE_SECTIONS
 XORG_RELEASE_VERSION
 
 AC_OUTPUT([Makefile
 	   src/Makefile
+	   man/Makefile
            xcomposite.pc])
 
