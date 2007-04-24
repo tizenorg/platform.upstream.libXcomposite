@@ -46,6 +46,10 @@
 	   <contrib>Extension specification and implementation</contrib>
 	   <email>keithp@keithp.com</email>
    </author>
+   <author><firstname>Deron</firstname><surname>Johnson</surname>
+	   <contrib>Overlay Window specification and implementation</contrib>
+	   <email>deron.johnson@sun.com</email>
+   </author>
   </authorgroup>
  </refentryinfo>
 
