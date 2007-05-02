@@ -59,7 +59,7 @@ MAN_SUBSTS = \
 	-e 's|__miscmansuffix__|$(MISC_MAN_SUFFIX)|g' \
 	-e 's|__filemansuffix__|$(FILE_MAN_SUFFIX)|g'
 
-SUFFIXES = .$(LIB_MAN_SUFFIX) .man
+SUFFIXES = .$(LIB_MAN_SUFFIX) .man .xml
 
 .man.$(LIB_MAN_SUFFIX):
 	sed $(MAN_SUBSTS) < $< > $@
@@ -69,10 +69,9 @@ SUFFIXES = .$(LIB_MAN_SUFFIX) .man
 dist-hook: $(libman_PRE)
 
 if HAVE_XMLTO
-SUFFIXES += .xml
-
 .xml.man:
 	$(XMLTO) man $< && mv $*.__libmansuffix__ $@
-
-
-endif HAVE_XMLTO
+else
+.xml.man:
+	@echo "WARNING: configure did not find xmlto, cannot create $@ without it"
+endif

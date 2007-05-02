@@ -47,6 +47,9 @@ AC_PROG_LIBTOOL
 AC_ARG_VAR([XMLTO], [Path to xmlto command])
 AC_PATH_PROG([XMLTO], [xmlto])
 AM_CONDITIONAL([HAVE_XMLTO], [test "x$XMLTO" != "x"])
+if test "x$XMLTO" = "x" -a ! -f $srcdir/man/Xcomposite.man ; then
+	AC_MSG_WARN([xmlto not found - cannot create man pages without it])
+fi
 
 # Check compositeext configuration, strip extra digits from package version to
 # find the required protocol version
