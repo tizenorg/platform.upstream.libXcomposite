@@ -168,6 +168,16 @@ The composite extension provides several related mechanisms:
 	Window is unmapped.
    </para></listitem>
   </varlistentry>
+  <varlistentry>
+   <term>Parent window clipping</term>
+   <listitem><para>
+	Version 0.4 of the protocol modifies the semantics of parent window
+	clipping in the presence of manual redirected children. With this
+	version, the area in the parent covered by manual redirected
+	children is left in the parent clip list instead of being removed as
+	in older versions.
+   </para></listitem>
+  </varlistentry>
  </variablelist>
 </para>
 <para>
