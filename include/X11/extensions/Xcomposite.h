@@ -58,11 +58,13 @@
 
 _XFUNCPROTOBEGIN
 
-Bool XCompositeQueryExtension (Display *dpy, int *event_basep, int *error_basep);
+Bool XCompositeQueryExtension (Display *dpy,
+                               int *event_base_return,
+                               int *error_base_return);
 
 Status XCompositeQueryVersion (Display *dpy,
-			       int     *major_versionp,
-			       int     *minor_versionp);
+                               int     *major_version_return,
+                               int     *minor_version_return);
 
 int XCompositeVersion (void);
 
