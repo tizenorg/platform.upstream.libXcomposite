@@ -1,3 +1,5 @@
+.deps
+.libs
 Makefile
 Makefile.in
 aclocal.m4
@@ -16,6 +18,15 @@ libtool
 ltmain.sh
 missing
 mkinstalldirs
+shadows.DONE
 stamp-h1
 xcomposite.pc
 *~
+*.3
+Xcomposite.man
+*.o
+*.la
+*.lo
+libXcomposite-*.tar.*
+ChangeLog
+tags

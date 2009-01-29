@@ -133,7 +133,7 @@ XCompositeExtAddDisplay (XCompositeExtInfo	*extinfo,
 	    UnlockDisplay (dpy);
 	    SyncHandle ();
 	    Xfree(info);
-	    return 0;
+	    return NULL;
 	}
 	info->major_version = rep.majorVersion;
 	info->minor_version = rep.minorVersion;
