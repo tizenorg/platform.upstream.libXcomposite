@@ -24,7 +24,7 @@ SUBDIRS = src man
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xcomposite.pc
 
-EXTRA_DIST = xcomposite.pc.in ChangeLog
+EXTRA_DIST = xcomposite.pc.in 
 
 .PHONY: ChangeLog
 
