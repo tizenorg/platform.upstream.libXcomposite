@@ -36,10 +36,10 @@ AC_INIT(libXcomposite, 0.4.1, [https://bugs.freedesktop.org/enter_bug.cgi?produc
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 AM_MAINTAINER_MODE
 
-# Require xorg-macros 1.3 or later: XORG_DEFAULT_OPTIONS
+# Require xorg-macros: XORG_DEFAULT_OPTIONS
 m4_ifndef([XORG_MACROS_VERSION],
-	  [m4_fatal([must install xorg-macros 1.3 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.3)
+	  [m4_fatal([must install xorg-macros 1.5 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.5)
 AM_CONFIG_HEADER(config.h)
 
 # Check for progs
@@ -47,13 +47,7 @@ AC_PROG_CC
 AC_PROG_LIBTOOL
 
 XORG_DEFAULT_OPTIONS
-
-AC_ARG_VAR([XMLTO], [Path to xmlto command])
-AC_PATH_PROG([XMLTO], [xmlto])
-AM_CONDITIONAL([HAVE_XMLTO], [test "x$XMLTO" != "x"])
-if test "x$XMLTO" = "x" -a ! -f $srcdir/man/Xcomposite.man ; then
-	AC_MSG_WARN([xmlto not found - cannot create man pages without it])
-fi
+XORG_WITH_XMLTO
 
 # Check compositeext configuration, strip extra digits from package version to
 # find the required protocol version
