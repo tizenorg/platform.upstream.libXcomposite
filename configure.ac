@@ -49,6 +49,11 @@ AC_PROG_LIBTOOL
 XORG_DEFAULT_OPTIONS
 XORG_WITH_XMLTO
 
+# Determine if the source for man pages is available
+# It may already be present (tarball) or can be generated using xmlto
+AM_CONDITIONAL([INSTALL_MANPAGES],
+	[test -f "$srcdir/man/Xcomposite.man" || test "x$have_xmlto" = xyes])
+
 # Check compositeext configuration, strip extra digits from package version to
 # find the required protocol version
 
