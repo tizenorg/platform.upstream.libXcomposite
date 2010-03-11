@@ -38,8 +38,8 @@ AM_MAINTAINER_MODE
 
 # Require xorg-macros: XORG_DEFAULT_OPTIONS
 m4_ifndef([XORG_MACROS_VERSION],
-	  [m4_fatal([must install xorg-macros 1.5 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.5)
+	  [m4_fatal([must install xorg-macros 1.6 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.6)
 AM_CONFIG_HEADER(config.h)
 
 # Check for progs
@@ -47,7 +47,7 @@ AC_PROG_CC
 AC_PROG_LIBTOOL
 
 XORG_DEFAULT_OPTIONS
-XORG_WITH_XMLTO
+XORG_WITH_XMLTO(0.0.20)
 
 # Determine if the source for man pages is available
 # It may already be present (tarball) or can be generated using xmlto
