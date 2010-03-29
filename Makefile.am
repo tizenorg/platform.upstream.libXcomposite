@@ -25,7 +25,6 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xcomposite.pc
 
 MAINTAINERCLEANFILES = ChangeLog INSTALL
-EXTRA_DIST = xcomposite.pc.in 
 
 .PHONY: ChangeLog INSTALL
 
