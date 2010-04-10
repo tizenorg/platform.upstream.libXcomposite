@@ -138,6 +138,7 @@ XCompositeExtAddDisplay (XCompositeExtInfo	*extinfo,
 	info->major_version = rep.majorVersion;
 	info->minor_version = rep.minorVersion;
 	UnlockDisplay (dpy);
+	SyncHandle ();
     } else {
 	/* The server doesn't have this extension.
 	 * Use a private Xlib-internal extension to hang the close_display
