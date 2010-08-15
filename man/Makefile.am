@@ -19,8 +19,7 @@ Xcomposite_shadows =	 			\
 	XCompositeReleaseOverlayWindow
 
 if INSTALL_MANPAGES
-libman_DATA = $(libman_PRE:man=@LIB_MAN_SUFFIX@) \
-	      $(Xcomposite_shadows:=.@LIB_MAN_SUFFIX@)
+libman_DATA = $(libman_PRE:man=@LIB_MAN_SUFFIX@)
 endif
 
 EXTRA_DIST  = $(libman_PRE) $(libman_xml)
