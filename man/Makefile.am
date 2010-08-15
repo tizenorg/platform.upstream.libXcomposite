@@ -1,12 +1,11 @@
 libmandir = $(LIB_MAN_DIR)
 
-LIB_MAN_DIR_SUFFIX = $(LIB_MAN_DIR:@mandir@/man%=%)
-
 libman_xml = Xcomposite.xml
 
-libman_PRE = $(libman_xml:xml=man)
+libman_PRE = $(libman_xml:xml=man)		\
+	     $(Xcomposite_shadows:=.man)
 
-Xcomposite_man_aliases = 			\
+Xcomposite_shadows =	 			\
 	XCompositeQueryExtension		\
 	XCompositeQueryVersion			\
 	XCompositeVersion			\
@@ -19,22 +18,16 @@ Xcomposite_man_aliases = 			\
 	XCompositeGetOverlayWindow		\
 	XCompositeReleaseOverlayWindow
 
-Xcomposite_shadowmen = $(Xcomposite_man_aliases:=.@LIB_MAN_SUFFIX@)
-
 if INSTALL_MANPAGES
 libman_DATA = $(libman_PRE:man=@LIB_MAN_SUFFIX@) \
-	      $(Xcomposite_shadowmen)
+	      $(Xcomposite_shadows:=.@LIB_MAN_SUFFIX@)
 endif
 
 EXTRA_DIST  = $(libman_PRE) $(libman_xml)
 
 CLEANFILES  = $(libman_DATA)
 
-MAINTAINERCLEANFILES = $(libman_PRE)
-
-# Generate man page shadow files (Replaces InstallManPageAliases from Imake)
-$(Xcomposite_shadowmen):
-	$(AM_V_GEN) echo .so man$(LIB_MAN_DIR_SUFFIX)/Xcomposite.$(LIB_MAN_SUFFIX) > $@
+MAINTAINERCLEANFILES = $(libman_xml:xml=man)
 
 SUFFIXES = .$(LIB_MAN_SUFFIX) .man .xml
 
