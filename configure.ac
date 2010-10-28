@@ -33,7 +33,7 @@ dnl that 'revision' number appears in Xcomposite.h and has to be manually
 dnl synchronized.
 dnl
 AC_INIT(libXcomposite,
-	0.4.2,
+	[0.4.3],
 	[https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
 	libXcomposite)
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
