@@ -20,7 +20,6 @@ X Composite Extension library
 Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{name} = %{version}
-Provides:       libxcomposite-devel
 
 %description devel
 X.Org X11 libXcomposite development package
@@ -29,13 +28,11 @@ X.Org X11 libXcomposite development package
 %setup -q
 
 %build
-%reconfigure --disable-static\
-           LDFLAGS="${LDFLAGS} -Wl,--hash-style=both -Wl,--as-needed"
+%configure --disable-static
 make %{?_smp_mflags}
 
 %install
 %make_install
-rm -f %{buildroot}%{_libdir}/*.la
 
 %remove_docs
 
@@ -44,7 +41,7 @@ rm -f %{buildroot}%{_libdir}/*.la
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS COPYING README ChangeLog
+%doc COPYING 
 %{_libdir}/libXcomposite.so.1
 %{_libdir}/libXcomposite.so.1.0.0
 
@@ -53,4 +50,3 @@ rm -f %{buildroot}%{_libdir}/*.la
 %{_includedir}/X11/extensions/Xcomposite.h
 %{_libdir}/libXcomposite.so
 %{_libdir}/pkgconfig/xcomposite.pc
-#%{_mandir}/man3/X?omposite*.3
