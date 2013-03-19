@@ -4,7 +4,7 @@ Release:        3
 License:        MIT
 Summary:        X Composite Extension library
 Url:            http://www.x.org
-Group:          System Environment/Libraries
+Group:          Graphics/X Window System
 
 Source:         %{name}-%{version}.tar.bz2
 
@@ -37,11 +37,12 @@ make %{?_smp_mflags}
 %remove_docs
 
 %post -p /sbin/ldconfig
+
 %postun -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
-%doc COPYING 
+%license COPYING 
 %{_libdir}/libXcomposite.so.1
 %{_libdir}/libXcomposite.so.1.0.0
 
