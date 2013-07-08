@@ -1,0 +1,8 @@
+Change-Id: Ief505a189143b9730e2751b02a4371bb7c3f57b6
+Code-Review+2: Ryan Ware <ware@linux.intel.com>
+Verified+1: Ryan Ware <ware@linux.intel.com>
+Submitted-by: Ryan Ware <ware@linux.intel.com>
+Submitted-at: Mon, 08 Jul 2013 09:39:51 -0700
+Reviewed-on: https://review.tizen.org/gerrit/4853
+Project: platform/upstream/libXcomposite
+Branch: refs/heads/tizen
