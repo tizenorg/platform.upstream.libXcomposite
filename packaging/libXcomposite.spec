@@ -1,3 +1,5 @@
+%bcond_with x
+
 Name:           libXcomposite
 Version:        0.4.3
 Release:        3
@@ -13,6 +15,10 @@ BuildRequires:  pkgconfig(compositeproto) >= 0.4
 BuildRequires:  pkgconfig(xext)
 BuildRequires:  pkgconfig(xfixes)
 BuildRequires:  pkgconfig(xorg-macros)
+
+%if !%{with x}
+ExclusiveArch:
+%endif
 
 %description
 X Composite Extension library
@@ -45,7 +51,7 @@ make %{?_smp_mflags}
 %files
 %manifest %{name}.manifest
 %defattr(-,root,root,-)
-%license COPYING 
+%license COPYING
 %{_libdir}/libXcomposite.so.1
 %{_libdir}/libXcomposite.so.1.0.0
 
