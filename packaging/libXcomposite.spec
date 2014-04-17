@@ -1,7 +1,7 @@
 %bcond_with x
 
 Name:           libXcomposite
-Version:        0.4.3
+Version:        0.4.4
 Release:        3
 License:        MIT
 Summary:        X Composite Extension library
@@ -36,7 +36,7 @@ X.Org X11 libXcomposite development package
 cp %{SOURCE1001} .
 
 %build
-%configure --disable-static
+%autogen --disable-static
 make %{?_smp_mflags}
 
 %install
